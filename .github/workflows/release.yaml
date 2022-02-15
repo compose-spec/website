@@ -11,7 +11,7 @@ jobs:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
       id-token: write
-      contents: read
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,9 +24,11 @@ jobs:
         with:
           prerelease: true
           draft: false
+          generateReleaseNotes: true
           tag: ${{ github.event.inputs.tag }}
           commit: "main"
       - name: Configure AWS credentials
+        if: ${{ github.event.inputs.tag != '' }} # don't release if no tag is specified
         uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: "arn:aws:iam::710015040892:role/ComposeSpecWebsite-20220215151844232500000002"
