@@ -24,7 +24,6 @@ jobs:
         with:
           prerelease: true
           draft: false
-          token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.event.inputs.tag }}
           commit: "main"
       - name: Configure AWS credentials
