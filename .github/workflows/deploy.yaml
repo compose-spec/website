@@ -25,10 +25,10 @@ jobs:
           commit: "main"
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@master
-          with:
-            role-to-assume: "arn:aws:iam::710015040892:role/ComposeSpecWebsite-20220215151844232500000002"
-            role-session-name: deploy-compose-spec-website
-            aws-region: us-east-1
+        with:
+          role-to-assume: "arn:aws:iam::710015040892:role/ComposeSpecWebsite-20220215151844232500000002"
+          role-session-name: deploy-compose-spec-website
+          aws-region: us-east-1
       - name: Push website to S3
         run: |
           aws s3 sync ./website s3://compose-spec-site-prod --acl=private
