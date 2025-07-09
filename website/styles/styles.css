@@ -634,10 +634,6 @@ section .container {
     margin-top: 0;
   }
 
-  #community-logos .community-logo-item img {
-    max-width: 90%;
-  }
-
 }
 
 @media screen and (max-width: 768px) {
