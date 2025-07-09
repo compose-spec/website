@@ -490,6 +490,14 @@ section .container {
 
 #community-logos .community-logo-item {
   margin-left: 60px;
+  /* Align all logos on the same center line*/
+  display: flex;
+  align-items: center;
+}
+
+#community-logos .community-logo-item img {
+  /* All logos should have the same height (also to avoids layout shift) */
+  height: 50px;
 }
 
 #community-logos .community-logo-item:first-child {
